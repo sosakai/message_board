@@ -60,10 +60,6 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -74,7 +70,6 @@ class PostsController extends Controller
     public function edit($id)
     {
         $edit = Posts::find($id);
-
         return view('edit',compact('edit'));
     }
 
@@ -105,6 +100,6 @@ class PostsController extends Controller
     public function destroy($id)
     {
         Posts::destroy($id);
-        return redirect('/post');
+        return redirect('post');
     }
 }
