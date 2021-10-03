@@ -18,6 +18,19 @@
                             <input class="btn btn-danger" type="submit" name="edit" value="編集">
                         </form>
                     @endif
+
+                @if($post->nices()->where('user_id',Auth::id())->exists())
+                    <form action="{{route('unnice',$post)}}" method="get">
+                        @csrf
+                        <input type="submit" value="いいね済み">
+                    </form>
+                @else
+                    <form action="{{route('nice',$post)}}" method="get">
+                        @csrf
+                        <input type="submit" value="いいね">
+                    </form>
+                @endif
+                <p>いいね数：{{$post->nices()->count()}}</p>
             </div>
             @endforeach
         </div>

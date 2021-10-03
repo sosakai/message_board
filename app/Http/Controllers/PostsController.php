@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Posts;
+use App\Nice;
 
 class PostsController extends Controller
 {
@@ -22,7 +23,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = Posts::all();
+        $posts = Posts::with('nices')->get();
         return view('index',compact("posts"));
     }
 

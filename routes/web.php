@@ -18,6 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::group(['middleware'=>['auth']],function(){
     Route::resource('post', 'PostsController');
+    Route::get('/nice/{post}', 'NiceController@nice')->name('nice');
+    Route::get('/unnice/{post}', 'NiceController@unnice')->name('unnice');
 });

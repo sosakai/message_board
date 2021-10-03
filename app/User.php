@@ -41,4 +41,8 @@ class User extends Authenticatable
 
         return $this->hasMany(Posts::class);
     }
+
+    public function nices(){
+        return $this->belongsToMany(Posts::class,'nices');
+    }
 }
