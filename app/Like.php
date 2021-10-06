@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nice extends Model
+class Like extends Model
 {
     public function user() {
         return $this->belongsTo(User::class);

@@ -19,18 +19,19 @@
                         </form>
                     @endif
 
-                @if($post->nices()->where('user_id',Auth::id())->exists())
-                    <form action="{{route('unnice',$post)}}" method="get">
+                @if($post->likes()->where('user_id',Auth::id())->exists())
+                    <form action="{{route('unlikes',$post)}}" method="post">
                         @csrf
+                        @method('DELETE')
                         <input type="submit" value="いいね済み">
                     </form>
                 @else
-                    <form action="{{route('nice',$post)}}" method="get">
+                    <form action="{{route('likes',$post)}}" method="post">
                         @csrf
                         <input type="submit" value="いいね">
                     </form>
                 @endif
-                <p>いいね数：{{$post->nices()->count()}}</p>
+                <p>いいね数：{{$post->likes()->count()}}</p>
             </div>
             @endforeach
         </div>

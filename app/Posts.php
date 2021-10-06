@@ -13,8 +13,8 @@ class Posts extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function nices(){
-        return $this->belongsToMany(User::class,'nices', 'post_id', 'user_id')
+    public function likes(){
+        return $this->belongsToMany(User::class,'likes', 'post_id', 'user_id')
                     ->withPivot('user_id');
     }
 }

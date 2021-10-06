@@ -13,7 +13,7 @@ class CreateNicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('nices', function (Blueprint $table) {
+        Schema::create('likes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('post_id')->nullable();
             $table->unsignedBigInteger('user_id')->nullable();
@@ -28,6 +28,6 @@ class CreateNicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nices');
+        Schema::dropIfExists('likes');
     }
 }

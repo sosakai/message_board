@@ -43,6 +43,6 @@ class User extends Authenticatable
     }
 
     public function nices(){
-        return $this->belongsToMany(Posts::class,'nices');
+        return $this->belongsToMany(Posts::class,'likes');
     }
 }
