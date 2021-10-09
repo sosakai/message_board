@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['middleware'=>['auth']],function(){
+    Route::resource('post', 'PostsController');
+    Route::post('/like/{post}', 'LikeController@like')->name('likes');
+    Route::delete('/unlike/{id}', 'LikeController@unlike')->name('unlikes');
+});
